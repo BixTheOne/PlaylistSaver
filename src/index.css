@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Neutral palette close to YouTube: white / near-black surfaces, red only for progress. */
+:root {
+  --bg: #ffffff;
+  --surface: #f2f2f2;
+  --surface-hover: #e5e5e5;
+  --raised: #ffffff;
+  --border: #e5e5e5;
+  --text: #0f0f0f;
+  --muted: #606060;
+  --accent: #ff0033;
+  --link: #065fd4;
+  --success: #1e8e3e;
+  --warning: #b06000;
+  --danger: #cc0000;
+  --overlay: rgba(0, 0, 0, 0.5);
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #0f0f0f;
+  --surface: #272727;
+  --surface-hover: #3f3f3f;
+  --raised: #212121;
+  --border: #3f3f3f;
+  --text: #f1f1f1;
+  --muted: #aaaaaa;
+  --accent: #ff0033;
+  --link: #3ea6ff;
+  --success: #41b35d;
+  --warning: #f2a33a;
+  --danger: #ff4e45;
+  --overlay: rgba(0, 0, 0, 0.7);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-raised: var(--raised);
+  --color-border: var(--border);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-link: var(--link);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --color-overlay: var(--overlay);
+  --font-sans: "Roboto", "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+}
+
+input,
+textarea {
+  user-select: text;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--surface-hover);
+  border-radius: 999px;
+  border: 2px solid var(--bg);
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
